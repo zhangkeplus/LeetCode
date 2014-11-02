@@ -9,12 +9,11 @@
  */
 class Solution {
 public:
-    bool isSameTree(TreeNode *p, TreeNode *q) {
-        if(p){
-            return q && p->val==q->val &&  
-            (isSameTree(p->left,q->left)&&isSameTree(p->right,q->right));
+    int maxDepth(TreeNode *root) {
+        if(!root){
+            return 0;
         }
-        return !q;
-        
+        return  1 + max(maxDepth(root->left), maxDepth(root->right));
+
     }
 };
